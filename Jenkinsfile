@@ -44,7 +44,7 @@ pipeline {
         stage('copying war file from cust ws to tomcat webapps')
             {
                 steps{
-                    sh 'scp /home/ec2-user/cust_ws/target/leadapp.war -i jenkins-key.pem ec2-user@13.232.35.186:/home/ec2-user/apache-tomcat-9.0.79/webapps'
+                    sh 'scp /home/ec2-user/cust_ws/target/leadapp.war ec2-user@13.232.35.186:/home/ec2-user/apache-tomcat-9.0.79/webapps'
                     echo 'war file successfully deployed to tomcat'
                 }
             }
