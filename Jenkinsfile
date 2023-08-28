@@ -10,7 +10,6 @@ pipeline {
             {
                 steps{
                     sh 'pwd'
-                    echo 'pwd'
                     sh 'rm -rf *'
                     echo 'cust ws cleaned successfully'
                 }
@@ -19,14 +18,14 @@ pipeline {
          stage('....compile...')
          { 
             steps{
-                sh 'mvn compile'
+                sh "mvn compile"
                  echo 'compiled successfully'
             }
          }
        stage('....package...')
        {
            steps{
-               sh 'mvn package'
+               sh "mvn package"
                echo 'packaged successfully'
            }
        }
