@@ -1,4 +1,4 @@
-// commment
+
 package com.javachap.domain;
 
 public interface User extends Domain{
