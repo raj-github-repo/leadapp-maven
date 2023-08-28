@@ -15,11 +15,11 @@ pipeline {
                 }
             
             }
-         stage('....compile...')
+         stage('....test...')
          { 
             steps{
-                sh "mvn compile"
-                 echo 'compiled successfully'
+                sh "mvn test"
+                 echo 'tested successfully'
             }
          }
        stage('....package...')
