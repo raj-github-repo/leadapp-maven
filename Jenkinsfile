@@ -6,15 +6,18 @@ pipeline {
         }
     }
    stages{
-       stage( 'cleaning cust ws')
+       stage( '....clean....')
             {
-                steps{
+              tools {
+		maven 'maven_3.9.4'
+	      }
+
+              steps{
                     sh 'pwd'
-                    sh 'rm -rf *'
-                    echo 'cust ws cleaned successfully'
+                    sh "mvn clean"
+                    
                 }
-            
-            }
+             }
          stage('....test...')
          { 
             tools {
