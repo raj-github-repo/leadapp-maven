@@ -14,13 +14,28 @@ pipeline {
                     sh 'rm -rf *'
                     echo 'cust ws cleaned successfully'
                 }
-                
+            
             }
-            stage('copying war file from cust ws to jenkins workspace')
+         stage('....compile...')
+         { 
+            steps{
+                sh 'mvn compile'
+                 echo 'compiled successfully'
+            }
+         }
+       stage('....package...')
+       {
+           steps{
+               sh 'mvn package'
+               echo 'packaged successfully'
+           }
+       }
+            
+        stage('copying war file from cust ws to tomcat webapps')
             {
                 steps{
-                    sh 'cp /home/ec2-user/jenkins-remote-dir/workspace/leadapp-maven/target/leadapp.war /home/ec2-user/jenkins-remote-dir/workspace/third_pipeline'
-                    echo 'war file copied successfully to preset ws of third_pipeline'
+                    sh 'cp /home/ec2-user/cust_ws/target/leadapp.war /home/ec2-user/apache-tomcat-9.0.79/webapps'
+                    echo 'war file successfully deployed to tomcat'
                 }
             }
        }
