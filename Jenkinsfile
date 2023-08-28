@@ -17,13 +17,21 @@ pipeline {
             }
          stage('....test...')
          { 
-            steps{
+            tools {
+				maven 'maven_3.9.4'
+			}
+
+             steps{
                 sh "mvn test"
                  echo 'tested successfully'
             }
          }
        stage('....package...')
        {
+          tools {
+				maven 'maven_3.9.4'
+			}
+
            steps{
                sh "mvn package"
                echo 'packaged successfully'
